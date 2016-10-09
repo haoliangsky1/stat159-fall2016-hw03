@@ -1,0 +1,1 @@
+This folder contains the data used to generate the analysis and the data output of the analysis.
