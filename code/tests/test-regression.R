@@ -1,12 +1,8 @@
 library(testthat)
-source('code/functions/regression-functions.R')
-
 # Test for residual_sum_squares()
 context('Test for residual_sum_squares()')
 test_that('Residuals Sum of Squares: Non-negative', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
-  # Test for ANY error
-  expect_that(residual_sum_squares(fit), throws_error())
   # Test for non-negative
   expect_gte(residual_sum_squares(fit), 0)
   # Test for length
@@ -18,21 +14,19 @@ test_that('Residuals Sum of Squares: Same as BuiltIn--Relative Error', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
   builtInRSS = sum(fit$residuals^2)
   err = abs(residual_sum_squares(fit) - builtInRSS)/residual_sum_squares(fit)
-  expect_lte(err, 10^-3)
+  expect_lte(err, 10^-5)
 })
 test_that('Residuals Sum of Squares: Same as BuiltIn--Absolute Error', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
   builtInRSS = sum(fit$residuals^2)
   err = abs(residual_sum_squares(fit) - builtInRSS)
-  expect_lte(err, 10^-3)
+  expect_lte(err, 10^-5)
 })
 
 # Test for total_sum_squares()
 context("Test for total_sum_squares()")
 test_that('Total Sum of Squares: Non-negative', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
-  # Test for ANY error
-  expect_that(total_sum_squares(fit), throws_error())
   # Test for non-negative
   expect_gte(total_sum_squares(fit), 0)
   # Test for length
@@ -44,21 +38,19 @@ test_that('Total Sum of Squares: Same as BuiltIn--Relative Error', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
   builtInTSS = sum((mtcars$mpg - mean(mtcars$mpg))^2)
   err = abs(total_sum_squares(fit) - builtInTSS)/total_sum_squares(fit)
-  expect_lte(err, 10^-3)
+  expect_lte(err, 10^-5)
 })
 test_that('Total Sum of Squares: Same as BuiltIn--Absolute Error', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
   builtInTSS = sum((mtcars$mpg - mean(mtcars$mpg))^2)
   err = abs(total_sum_squares(fit) - builtInTSS)
-  expect_lte(err, 10^-3)
+  expect_lte(err, 10^-5)
 })
 
 # Test for r_squared()
 context("Test for r_squared()")
 test_that('R Square: Non-negative', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
-  # Test for ANY error
-  expect_that(r_squared(fit), throws_error())
   # Test for non-negative
   expect_gte(r_squared(fit), 0)
   # Test for length
@@ -71,22 +63,20 @@ test_that('R Square: Same as Built-in--Relative Error', {
   # Test for relative error
   builtInR2 = summary(fit)$r.squared
   err = abs(r_squared(fit) - builtInR2)/r_squared(fit)
-  expect_lte(err, 10^-3)
+  expect_lte(err, 10^-5)
 })
 test_that('R Square: Same as Built-in--Absolute Error', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
   # Test for relative error
   builtInR2 = summary(fit)$r.squared
   err = abs(r_squared(fit) - builtInR2)
-  expect_lte(err, 10^-3)
+  expect_lte(err, 10^-5)
 })
 
 # Test for f_statistic()
 context('Test for f_statistic()')
 test_that('F-Statistic: Non-negative', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
-  # Test for ANY error
-  expect_that(f_statistic(fit), throws_error())
   # Test for non-negative
   expect_gte(f_statistic(fit), 0)
   # Test for length
@@ -114,8 +104,6 @@ test_that('F-Statistic: Same as Built-in--Absolute Error', {
 context("Test for residual_std_error()")
 test_that('Residual Standard Error: Non-negative', {
   fit = lm(mpg~cyl+disp+hp+drat+wt, data = mtcars)
-  # Test for ANY error
-  expect_that(residual_std_error(fit), throws_error())
   # Test for non-negative
   expect_gte(residual_std_error(fit), 0)
   # Test for length
