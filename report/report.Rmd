@@ -1,0 +1,18 @@
+---
+title: "Statistics 159 Homework 3"
+author: "Liang Hao"
+date: "10/10/2016"
+output: pdf_document
+---
+
+# Abstract
+
+# Introduction
+
+# Data
+
+# Methodology
+
+# Results
+
+# Conclusions
