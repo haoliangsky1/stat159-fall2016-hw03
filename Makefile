@@ -1,9 +1,18 @@
 # Declare a phone target
 .PHONY: all clean
 
-out = data/Advertising.csv data/eda-output.txt data/correlation-matrix.RData images/*.png
+out = data/Advertising.csv data/eda-output.txt data/correlation-matrix.RData images/*.png session-info.txt
 
 all: $(out)
+
+session-info.txt:
+	Rscript code/script/session-info-script.R
+
+# The regression object and images
+data/regression.RData:
+	Rscript code/scripts/regression-script.R data/Advertising
+images/*.png:
+	Rscript code/scripts/regression-script.R data/Advertising
 
 # The summary statistics file and images
 data/eda-output.txt:
