@@ -6,4 +6,7 @@ The raw data of this project is greatly contributed by Gareth James, Daniela Wit
 *eda-output.txt* is a text file containing the summary statistics of all the variables, including *TV*, *Radio*, *Newspaper* and *Sales*, and the correlation matrix between the variables.
 
 
-*correlation-matrix.RData* is a text file
+*correlation-matrix.RData* is an R's binary formate file containing the matrix of correlations among all variables.
+
+
+*regression.RData* is an R's binary format file containning the regression object obtained when running *regression-script.R*, including multiple linear regression models on each of the variables and one multivariant regression model on the three of them.
