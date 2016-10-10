@@ -33,7 +33,7 @@ multiFit = lm(Sales~TV+Radio+Newspaper, data = advertising)
 multiInfo = summary(multiFit)
 
 # Save the models
-save(c(tvFit, radioFit, newspaperFit, multiFit), file = 'data/regression.RData')
+save(tvFit, radioFit, newspaperFit, multiFit, file = 'data/regression.RData')
 
 png('images/residual-plot.png')
 plot(multiFit, which = 1)

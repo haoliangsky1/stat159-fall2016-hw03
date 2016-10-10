@@ -1,3 +1,6 @@
+library(testthat)
+source('code/functions/regression-functions.R')
+
 # Test for residual_sum_squares()
 context('Test for residual_sum_squares()')
 test_that('Residuals Sum of Squares: Non-negative', {

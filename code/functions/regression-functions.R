@@ -1,8 +1,3 @@
-# Take in data and the model
-args = commandArgs(trailingOnly =TRUE)
-advertising = read.csv(args[1], header = TRUE)
-load('data/regression.RData')
-
 # This function takes in a lm model and returns the
 #  residual sum of squares of the model
 residual_sum_squares = function(model) {
@@ -46,3 +41,5 @@ residual_std_error = function(model) {
   rse = sqrt(residual_sum_squares(model)/(n - p - 1))
   return(rse)
 }
+
+
