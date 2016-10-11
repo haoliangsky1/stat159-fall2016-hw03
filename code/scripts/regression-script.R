@@ -39,11 +39,11 @@ png('images/residual-plot.png')
 plot(multiFit, which = 1)
 dev.off()
 
-png('normal-qq-plot.png')
+png('images/normal-qq-plot.png')
 plot(multiFit, which = 2)
 dev.off()
 
-png('scale-location-plot.png')
+png('images/scale-location-plot.png')
 plot(multiFit, which = 3)
 dev.off()
 
