@@ -1,7 +1,7 @@
 # Declare a phone target
-.PHONY: all clean
+.PHONY: all clean data tests eda regression report
 
-out = data/Advertising.csv data/eda-output.txt data/correlation-matrix.RData images/*.png session-info.txt report/report.pdf
+out = data/Advertising.csv data/eda-output.txt data/*.RData images/*.png session-info.txt report/report.pdf
 
 all: $(out)
 
@@ -22,6 +22,8 @@ images/*.png:
 data/eda-output.txt:
 	Rscript code/scripts/eda-script.R data/Advertising.csv
 data/correlation-matrix.RData:
+	Rscript code/scripts/eda-script.R data/Advertising.csv
+data/overallSummary.RData:
 	Rscript code/scripts/eda-script.R data/Advertising.csv
 images/*.png:
 	Rscript code/scripts/eda-script.R data/Advertising.csv
