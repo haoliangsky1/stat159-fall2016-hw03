@@ -42,17 +42,14 @@ correlationMatrix = cor(advertising)
 
 # Data Output
 sink('data/eda-output.txt')
-print('Summary Statistics')
 
 overallSummary
-
-print('Correlation Matrix')
 
 correlationMatrix
 sink()
 
 save(correlationMatrix, file = 'data/correlation-matrix.RData')
-
+save(overallSummary, file = 'data/overallSummary.RData')
 # Images Output
 # TV
 png('images/histogram-tv.png')
@@ -78,3 +75,4 @@ dev.off()
 png('images/scatterplot-matrix.png')
 pairs(~TV+Radio+Newspaper+Sales, data = advertising, main = 'Simple Scatterplot Matrix', cex = 0.8)
 dev.off()
+

@@ -1,8 +1,7 @@
 # This function takes in a lm model and returns the
 #  residual sum of squares of the model
 residual_sum_squares = function(model) {
-  info = summary(model)
-  residuals = info$residuals
+  residuals = model$residuals
   rss = sum(residuals ^ 2)
   return(rss)
 }
@@ -19,7 +18,9 @@ total_sum_squares = function(model) {
 # This function takes in a lm model and returns the
 # r squared value of the model
 r_squared = function(model) {
-  r2 = 1 - residual_sum_squares(model)/total_sum_squares(model)
+  rss = residual_sum_squares(model)
+  tss = total_sum_squares(model)
+  r2 = 1 - (rss / tss)
   return(r2)
 }
 
